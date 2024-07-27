@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="my-4">{{ class.title }}</h1>
+<p><strong>Category:</strong> {{ class.category }}</p>
+<p><strong>Duration:</strong> {{ class.duration_in_months }} months</p>
+<p><strong>Description:</strong> {{ class.description }}</p>
+<p><strong>Slug:</strong> {{ class.slug }}</p>
+
+<!-- Add Edit and Delete Links -->
+<p>
+    <a href="{% url 'class-edit' class.slug %}" class="btn btn-primary">Edit Class</a>
+    <a href="{% url 'class-delete' class.slug %}" class="btn btn-danger">Delete Class</a>
+</p>
+{% endblock %}

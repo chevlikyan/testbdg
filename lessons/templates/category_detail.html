@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="my-4">{{ category.title }}</h1>
+<p>{{ category.description }}</p>
+
+<h2>Classes in this Category</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Duration (Months)</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for class in classes %}
+        <tr>
+            <td><a href="{% url 'class-detail' class.slug %}">{{ class.title }}</a></td>
+            <td>{{ class.duration_in_months }}</td>
+            <td>{{ class.description }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

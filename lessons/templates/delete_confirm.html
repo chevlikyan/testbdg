@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="my-4">{% if form.instance.pk %}Edit{% else %}Are you sure?{% endif %}</h1>
+<form method="post" class="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-secondary mt-3">{% if form.instance.pk %}Update{% else %}Yes Delete{% endif %}</button>
+</form>
+<a href="{% url 'class-list' %}" class="btn btn-primary mt-3">Back to Classes List</a>
+{% endblock %}

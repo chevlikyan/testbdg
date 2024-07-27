@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="my-4">Categories</h1>
+<ul class="list-group">
+    {% for category in categories %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="{% url 'category-detail' category.id %}">{{ category }}</a>
+        <div>
+            <a href="{% url 'category-edit' category.id %}" class="btn btn-primary btn-sm mr-2">Edit</a>
+            <a href="{% url 'category-delete' category.id %}" class="btn btn-danger btn-sm">Delete</a>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'category-create' %}" class="btn btn-success mt-3">Create New Category</a>
+{% endblock %}
